@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
       - name: travis-k8s-demo
-        image: gcr.io/singular-hash-228518/travis-k8s-demo:v1
+        image: gcr.io/newworld-262922/travis-k8s-demo:v1
         imagePullPolicy: Always
         ports:
         - containerPort: 8000
