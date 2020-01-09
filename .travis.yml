@@ -1,8 +1,7 @@
 before_install:
 - openssl aes-256-cbc -K $encrypted_27695983b302_key -iv $encrypted_27695983b302_iv
-  -in gcloud-service-account-secret.json.enc -out .\\gcloud-service-account-secret.json
+  -in gcloud-service-account-secret.json.enc -out gcloud-service-account-secret.json
   -d
-- ls -la
 branches:
   only:
   - master
