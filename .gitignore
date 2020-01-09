@@ -1,3 +1,6 @@
 .DS_Store
 gcloud-service-account-secret.json
+api_key.py
+credentials.tar.gz
+credentials.tar.gz.enc
 node_modules/*
