@@ -3,6 +3,8 @@ before_install:
   -in gcloud-service-account-secret.json.enc -out gcloud-service-account-secret.json
   -d
 - ls -la
+- chmod 777 gcloud-service-account-secret.json
+- ls -la
 branches:
   only:
   - master
