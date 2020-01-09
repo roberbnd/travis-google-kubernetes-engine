@@ -7,6 +7,7 @@ IMAGE_NAME:=travis-k8s-demo
 IMAGE_VERSION:=v1
 
 gauth:
+    @ls -la
 	@gcloud auth activate-service-account --key-file ${KEY_FILE}
 
 gconfig:
