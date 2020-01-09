@@ -1,4 +1,4 @@
-KEY_FILE:=gcloud-service-account-secret.json
+KEY_FILE:=newworld-262922-48217a017628.p12
 PROJECT_ID:=newworld-262922
 K8s_CLUSTER:=standard-cluster-1
 ZONE:=us-west1-a

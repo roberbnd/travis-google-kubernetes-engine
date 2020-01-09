@@ -1,10 +1,12 @@
 before_install:
 - openssl aes-256-cbc -K $encrypted_27695983b302_key -iv $encrypted_27695983b302_iv
+  -in newworld-262922-48217a017628.p12.enc -out .\\newworld-262922-48217a017628.p12
+  -d
+- openssl aes-256-cbc -K $encrypted_27695983b302_key -iv $encrypted_27695983b302_iv
   -in gcloud-service-account-secret.json.enc -out gcloud-service-account-secret.json
   -d
 - ls -la
 - chmod 777 gcloud-service-account-secret.json
-
 branches:
   only:
   - master
@@ -18,9 +20,11 @@ env:
   - CLOUDSDK_CORE_DISABLE_PROMPTS=1
 script: echo "This should be running tests for continuous integration"
 after_success:
-- gcloud version || true	- if [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then
-- if [ ! -d "$HOME/google-cloud-sdk/bin" ]; then rm -rf $HOME/google-cloud-sdk; export CLOUDSDK_CORE_DISABLE_PROMPTS=1; curl https://sdk.cloud.google.com | bash; fi	
-- source /home/travis/google-cloud-sdk/path.bash.inc	
+- "gcloud version || true\t- if [ \"$TRAVIS_PULL_REQUEST\" == \"false\" ] && [ \"$TRAVIS_BRANCH\"
+  == \"master\" ]; then"
+- if [ ! -d "$HOME/google-cloud-sdk/bin" ]; then rm -rf $HOME/google-cloud-sdk; export
+  CLOUDSDK_CORE_DISABLE_PROMPTS=1; curl https://sdk.cloud.google.com | bash; fi
+- source /home/travis/google-cloud-sdk/path.bash.inc
 - gcloud version
 - if [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then
   ./deploy.sh; fi
